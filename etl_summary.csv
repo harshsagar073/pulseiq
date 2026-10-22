@@ -1,0 +1,26 @@
+table_name,rows_in,passed,quarantined,validation_scope
+budget_payroll_dept_month,198,198,0,structural only
+dim_account,47,47,0,structural only
+dim_client,28,28,0,structural only
+dim_date,2557,2557,0,structural only
+dim_department,11,11,0,structural only
+dim_employee,1606,1606,0,structural only
+dim_leave_type,6,6,0,structural only
+dim_location,9,9,0,structural only
+dim_role,58,58,0,structural only
+dim_sprint,38,38,0,structural only
+dim_team,16,16,0,structural only
+dim_vendor,30,30,0,structural only
+fact_anomaly,405,405,0,formal contract
+fact_attendance_monthly,7343,7343,0,structural only
+fact_attrition_risk,430,430,0,formal contract
+fact_expense,501,501,0,structural only
+fact_forecast,72,72,0,formal contract
+fact_headcount_monthly,891,891,0,structural only
+fact_invoice,743,743,0,structural only
+fact_invoice_payment,709,709,0,structural only
+fact_leave,3441,3441,0,structural only
+fact_ledger,6784,6784,0,structural only
+fact_payroll,7344,7344,0,structural only
+fact_task,28868,28848,20,formal contract
+kpi_targets,180,180,0,structural only
