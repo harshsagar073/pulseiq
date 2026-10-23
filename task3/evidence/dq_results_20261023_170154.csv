@@ -1,0 +1,15 @@
+check_id,check_name,table_name,bad_rows,status,runtime_ms,details
+DQ-C01,Payroll equals ledger,fact_payroll / fact_ledger,5.0,FAIL,95.547,
+DQ-C02,Ledger balanced,fact_ledger,0.0,PASS,37.041,
+DQ-C03,Unique payroll rows,fact_payroll,2.0,FAIL,17.722,
+DQ-C04,No orphan employees,fact_payroll,2.0,FAIL,35.283,
+DQ-C05,No attendance after exit,fact_attendance_monthly,4.0,FAIL,41.386,
+DQ-C06,Unpaid leave deducted,fact_attendance_monthly / fact_payroll,42.0,FAIL,41.302,
+DQ-C07,Invoice arithmetic,fact_invoice,1.0,FAIL,25.796,
+DQ-C08,Expense arithmetic,fact_expense,1.0,FAIL,14.278,
+DQ-C09,Task dates sensible,fact_task,0.0,PASS,38.101,
+DQ-C10,Leave dates sensible,fact_leave,2.0,FAIL,4.574,
+DQ-C11,AI feeds are fresh,fact_attrition_risk,5.0,FAIL,19.78,
+DQ-C12,Dimension history does not overlap,dim_employee,1.0,FAIL,3.513,
+DQ-C13,Pipeline freshness,etl_run_log (required source not present),,UNAVAILABLE,29.246,No etl_run_log table exists. A genuine load timestamp is required to test freshness.
+DQ-C14,Minimum group size,manager-facing aggregates,84.0,FAIL,19.257,

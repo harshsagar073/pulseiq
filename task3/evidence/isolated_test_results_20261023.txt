@@ -1,0 +1,19 @@
+test_c01_payroll_ledger_mismatch (test_dq_checks.DataQualityRuleTests.test_c01_payroll_ledger_mismatch) ... ok
+test_c02_unbalanced_ledger (test_dq_checks.DataQualityRuleTests.test_c02_unbalanced_ledger) ... ok
+test_c03_duplicate_payroll_key (test_dq_checks.DataQualityRuleTests.test_c03_duplicate_payroll_key) ... ok
+test_c04_orphan_employee (test_dq_checks.DataQualityRuleTests.test_c04_orphan_employee) ... ok
+test_c05_attendance_after_exit (test_dq_checks.DataQualityRuleTests.test_c05_attendance_after_exit) ... ok
+test_c06_unpaid_leave_mismatch (test_dq_checks.DataQualityRuleTests.test_c06_unpaid_leave_mismatch) ... ok
+test_c07_overpaid_invoice (test_dq_checks.DataQualityRuleTests.test_c07_overpaid_invoice) ... ok
+test_c08_expense_arithmetic (test_dq_checks.DataQualityRuleTests.test_c08_expense_arithmetic) ... ok
+test_c09_invalid_task_dates (test_dq_checks.DataQualityRuleTests.test_c09_invalid_task_dates) ... ok
+test_c10_invalid_leave_dates (test_dq_checks.DataQualityRuleTests.test_c10_invalid_leave_dates) ... ok
+test_c11_stale_prediction (test_dq_checks.DataQualityRuleTests.test_c11_stale_prediction) ... ok
+test_c12_overlapping_employee_history (test_dq_checks.DataQualityRuleTests.test_c12_overlapping_employee_history) ... ok
+test_c13_pipeline_freshness_requires_real_log (test_dq_checks.DataQualityRuleTests.test_c13_pipeline_freshness_requires_real_log) ... ok
+test_c14_small_group_is_flagged (test_dq_checks.DataQualityRuleTests.test_c14_small_group_is_flagged) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.766s
+
+OK

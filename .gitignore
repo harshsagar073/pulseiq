@@ -2,3 +2,17 @@
 __pycache__/
 *.py[cod]
 .DS_Store
+
+# PulseIQ generated databases
+*.duckdb
+*.duckdb.wal
+
+# Python virtual environments and cache
+venv/
+__pycache__/
+*.py[cod]
+
+# macOS files and temporary logs
+.DS_Store
+*.tmp
+*.log

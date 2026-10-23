@@ -1,0 +1,23 @@
+DQ-C09 — Task dates sensible
+Isolated test result: PASS
+Input: Task 1 quarantined fact_task.csv
+Input rows: 20
+Detected rows: 20
+
+Breakdown:
+- COMPLETED_BEFORE_STARTED: 12
+- DONE_WITHOUT_DATE: 8
+
+Expected official planted issues: 20
+Actual detected issues: 20
+
+Explanation:
+The official planted task issues were quarantined by Task 1 validation.
+Task 2 loads only validated CSVs, so these rows were absent from the
+Task 3 warehouse and the normal warehouse check returned PASS.
+The isolated test verified DQ-C09 against the quarantined rows without
+changing the Task 1 rules or modifying the Task 2 warehouse.
+
+Decision:
+Keep the existing validation rules. Preserve the quarantined source rows.
+Retain the isolated test CSV as evidence.

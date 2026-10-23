@@ -1,0 +1,69 @@
+OFFICIAL PLANTED ISSUE RECORD PRESENCE AUDIT
+Read-only check; no source data or warehouse tables changed.
+
+DQ-01 | ATTENDANCE_AFTER_EXIT | fact_attendance_monthly
+  Raw:        4/4 IDs
+  Validated:  4/4 IDs
+  Quarantine: FILE MISSING
+  Warehouse:  4/4 IDs
+
+DQ-02 | DUPLICATE_PAYROLL_ROW | fact_payroll
+  Raw:        2/2 IDs
+  Validated:  2/2 IDs
+  Quarantine: FILE MISSING
+  Warehouse:  2/2 IDs
+
+DQ-03 | ORPHAN_FOREIGN_KEY | fact_payroll
+  Raw:        2/2 IDs
+  Validated:  2/2 IDs
+  Quarantine: FILE MISSING
+  Warehouse:  2/2 IDs
+
+DQ-04 | PAYROLL_LEDGER_MISMATCH | fact_ledger
+  Raw:        3/3 IDs
+  Validated:  3/3 IDs
+  Quarantine: FILE MISSING
+  Warehouse:  3/3 IDs
+
+DQ-05 | OVERPAID_INVOICE | fact_invoice
+  Raw:        1/1 IDs
+  Validated:  1/1 IDs
+  Quarantine: FILE MISSING
+  Warehouse:  1/1 IDs
+
+DQ-06 | COMPLETED_BEFORE_STARTED | fact_task
+  Raw:        12/12 IDs
+  Validated:  0/12 IDs
+  Quarantine: 12/12 IDs
+  Warehouse:  0/12 IDs
+
+DQ-07 | DONE_WITHOUT_DATE | fact_task
+  Raw:        8/8 IDs
+  Validated:  0/8 IDs
+  Quarantine: 8/8 IDs
+  Warehouse:  0/8 IDs
+
+DQ-08 | END_BEFORE_START | fact_leave
+  Raw:        2/2 IDs
+  Validated:  2/2 IDs
+  Quarantine: FILE MISSING
+  Warehouse:  2/2 IDs
+
+DQ-09 | STALE_PREDICTION | fact_attrition_risk
+  Raw:        5/5 IDs
+  Validated:  5/5 IDs
+  Quarantine: FILE MISSING
+  Warehouse:  5/5 IDs
+
+DQ-10 | TOTAL_MISMATCH | fact_expense
+  Raw:        1/1 IDs
+  Validated:  1/1 IDs
+  Quarantine: FILE MISSING
+  Warehouse:  1/1 IDs
+
+DQ-11 | SCD_INTERVAL_OVERLAP | dim_employee
+  Raw:        1/1 IDs
+  Validated:  1/1 IDs
+  Quarantine: FILE MISSING
+  Warehouse:  1/1 IDs
+
