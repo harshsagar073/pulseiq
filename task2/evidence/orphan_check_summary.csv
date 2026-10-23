@@ -1,5 +1,5 @@
 child_table,child_column,parent_table,parent_column,non_null_keys_checked,null_keys,orphan_rows,status
-fact_payroll,employee_key,dim_employee,employee_key,7344,0,2,REVIEW
+fact_payroll,employee_key,dim_employee,employee_key,7344,0,0,PASS
 fact_payroll,date_key,dim_date,date_key,7344,0,0,PASS
 fact_payroll,department_id,dim_department,department_id,7344,0,0,PASS
 fact_payroll,role_id,dim_role,role_id,7344,0,0,PASS

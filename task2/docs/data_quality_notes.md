@@ -43,3 +43,20 @@ The latest check evaluated 34 relationships. All passed except `fact_payroll.emp
 ## 5. Employee history
 
 Employee-related facts should join through `employee_key` to preserve the correct historical employee version. Joining only through `employee_id` can misattribute records when an employee changes departments.
+
+## Unknown employee-key exception
+
+The warehouse relationship check initially identified two payroll records
+using employee_key = -1: PI-X0003 (EMP-9001) and PI-X0004 (EMP-9002).
+
+Neither employee ID was found in the source employee dimension. To preserve
+both payroll records and resolve the warehouse key relationship, a generic
+unknown-member row was added to warehouse.dim_employee with employee_key = -1.
+No employee identity or personal details were invented.
+
+The original employee IDs remain in the payroll fact records. EMP-9001 and
+EMP-9002 require source-data review before their identities can be confirmed.
+
+After the change, all 34 checked relationships passed with zero orphan
+relationship rows. This validates the key relationships, not the underlying
+business identities of these two employees.
