@@ -1,0 +1,54 @@
+PulseIQ Task 4 - Final Validation
+Run time: 2026-10-24T13:08:19
+
+Governed view count: 28
+Catalog metric count: 28
+Unique metric IDs: 28
+
+Governed views:
+- m01_headcount
+- m02_hires
+- m03_exits
+- m04_monthly_attrition
+- m05_rolling_12m_attrition
+- m06_voluntary_attrition
+- m07_gross_pay
+- m08_net_pay
+- m09_payroll_cost
+- m10_cost_per_head
+- m11_overtime_share
+- m12_variable_pay_share
+- m13_attendance_rate
+- m14_late_arrival_rate
+- m15_lop_days
+- m16_revenue
+- m17_net_profit
+- m18_operating_margin
+- m19_payroll_pct_revenue
+- m20_dso
+- m21_overdue_receivables
+- m22_task_completion_rate
+- m23_on_time_delivery_rate
+- m24_velocity
+- m25_average_cycle_time
+- m26_anomaly_flag_rate
+- m27_high_risk_share
+- m28_forecast_error_mape
+
+Percentage metric checks:
+m22_task_completion_rate:
+   unit  row_count  min_value  max_value
+percent        608      67.92      100.0
+m23_on_time_delivery_rate:
+   unit  row_count  min_value  max_value
+percent        608       75.0      100.0
+m26_anomaly_flag_rate:
+   unit  row_count  min_value  max_value
+percent         36      100.0      100.0
+
+Forecast error availability:
+M28 result rows: 0
+Note: forecasts start October 2026; actual headcount ends September 2026.
+
+Raw anomaly flagged values:
+Y: 405
