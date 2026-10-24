@@ -1,0 +1,23 @@
+PulseIQ Task 5 — Workforce & Headcount Dashboard
+Validation date: 2026-10-24
+
+Database validation: PASS
+- governed.v_dashboard_headcount: 810 rows
+- governed.v_dashboard_hires: 13 rows
+- governed.v_dashboard_exits: 1 row
+- governed.v_dashboard_current_employee: 441 rows
+- governed.v_dashboard_department_mix: 11 rows
+- governed.v_dashboard_location_tier: 3 rows
+- governed.v_dashboard_work_mode: 3 rows
+
+Browser validation:
+- Dashboard opens successfully.
+- KPI cards display.
+- Headcount trend chart displays.
+- Department mix chart displays.
+- Location-tier chart displays.
+- Work-mode chart displays.
+- Department and date filters tested.
+- Chart insight captions display.
+
+Screenshot: task5_dashboard.png
