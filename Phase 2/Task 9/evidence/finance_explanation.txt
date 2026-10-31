@@ -1,0 +1,9 @@
+Finance Head – Payroll Reconciliation Explanation
+
+During reconciliation, four payroll records were identified that inflated the monthly totals. Two records were duplicate employee-month entries, and two referenced employee IDs missing from the employee master. We excluded these four records from the Task 9 reporting calculations only, preserved the original source data, and reconciled all 18 months to the official PQ-09 answer key with zero difference.
+
+Reconciliation result:
+- Months reconciled: 18 of 18
+- Failed months: 0
+- Excluded records: 4
+- Employer cost vs. ledger difference: ₹0.00

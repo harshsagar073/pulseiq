@@ -1,0 +1,17 @@
+TASK 10 — TOP TWO DEPARTMENT RECOMMENDATIONS
+Ranking basis: cumulative positive monthly variances (gross overspend).
+Net variance is reported separately.
+Hiring-freeze caveat: budgets may not have been refreshed after the freeze.
+Treat these departments as review priorities, not proof of avoidable spending.
+
+1. Engineering (D01)
+Gross overspend: 4,830,371.46
+Net variance: -2,054,508.87
+Over-budget months: 8
+Action: reconcile paid headcount and employer-cost components against the approved budget. Check hiring-freeze timing, approved exceptions, vacancies, backfills and one-off payments before proposing cost reductions.
+
+2. Sales (D04)
+Gross overspend: 2,609,956.20
+Net variance: 57,542.69
+Over-budget months: 9
+Action: reconcile paid headcount and employer-cost components against the approved budget. Check hiring-freeze timing, approved exceptions, vacancies, backfills and one-off payments before proposing cost reductions.

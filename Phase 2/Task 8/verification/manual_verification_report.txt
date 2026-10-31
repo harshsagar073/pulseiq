@@ -1,0 +1,55 @@
+PULSEIQ PHASE 2 - TASK 8
+MANUAL TEAM METRIC VERIFICATION
+=======================================================
+Source: Phase 1 / Task 4 governed DuckDB warehouse
+Method: Independent aggregation from raw.fact_task
+Sprint coverage: All sprints in raw.dim_sprint
+Source database opened in read-only mode.
+
+TEAM: Platform Core (T01)
+---------------------------------------------
+Active members: 35
+Total tasks: 2454
+Completed tasks: 2151
+Completed story points: 7538
+Average normalized sprint velocity: 5.67
+Valid cycle-time tasks: 2149
+Average cycle time (days): 4.73
+On-time tasks: 2012
+Late tasks: 137
+On-time rate (%): 93.62
+Blocked tasks: 60
+Reopened tasks: 92
+Reopen events: 114
+Cancelled tasks: 79
+
+TEAM: Support Tooling (T12)
+---------------------------------------------
+Active members: 58
+Total tasks: 3779
+Completed tasks: 2994
+Completed story points: 10288
+Average normalized sprint velocity: 4.67
+Valid cycle-time tasks: 2991
+Average cycle time (days): 4.85
+On-time tasks: 2764
+Late tasks: 229
+On-time rate (%): 92.35
+Blocked tasks: 177
+Reopened tasks: 121
+Reopen events: 142
+Cancelled tasks: 107
+
+VERIFICATION RULES
+---------------------------------------------
+Completed delivery: status = Done.
+Velocity: sum of story points for Done tasks.
+Normalized velocity: completed story points divided by active members and 38 sprints.
+Cycle time: Done tasks with non-negative cycle_time_days; missing values excluded.
+On-time rate: Y / (Y + N) among Done tasks.
+Blocked: current status = Blocked.
+Reopened tasks: reopened_count > 0.
+Reopen events: sum of reopened_count.
+Cancelled tasks are reported separately and excluded from delivery metrics.
+
+This report is an independent raw-table calculation for two teams.

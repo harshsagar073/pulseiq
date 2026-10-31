@@ -1,0 +1,24 @@
+PULSEIQ TASK 8 - MANUAL CALCULATION WORKSHEET
+
+T01 - PLATFORM CORE
+Active members: 35
+Sprints: 38
+Normalized velocity: 7538 / (35 x 38) = 5.67
+On-time rate: 2012 / (2012 + 137) x 100 = 93.62%
+Average cycle time: 4.73 days
+Blocked tasks: 60
+Reopened tasks: 92
+Reopen events: 114
+
+T12 - SUPPORT TOOLING
+Active members: 58
+Sprints: 38
+Normalized velocity: 10288 / (58 x 38) = 4.67
+On-time rate: 2764 / (2764 + 229) x 100 = 92.35%
+Average cycle time: 4.85 days
+Blocked tasks: 177
+Reopened tasks: 121
+Reopen events: 142
+
+Source: Phase 1 Task 4 governed warehouse.
+Database accessed in read-only mode.

@@ -1,0 +1,15 @@
+check_id,check_name,severity,table_name,bad_rows,status,runtime_ms,details
+DQ-C01,Payroll equals ledger,Critical,fact_payroll / fact_ledger,5.0,FAIL,53.001,
+DQ-C02,Ledger balanced,Critical,fact_ledger,0.0,PASS,7.922,
+DQ-C03,Unique payroll rows,Critical,fact_payroll,2.0,FAIL,4.496,
+DQ-C04,No orphan employees,Critical,fact_payroll,2.0,FAIL,17.295,
+DQ-C05,No attendance after exit,Warning,fact_attendance_monthly,4.0,FAIL,22.767,
+DQ-C06,Unpaid leave deducted,Warning,fact_attendance_monthly / fact_payroll,11.0,FAIL,22.968,
+DQ-C07,Invoice arithmetic,Warning,fact_invoice,1.0,FAIL,36.434,
+DQ-C08,Expense arithmetic,Warning,fact_expense,1.0,FAIL,11.072,
+DQ-C09,Task dates sensible,Warning,fact_task,0.0,PASS,16.948,
+DQ-C10,Leave dates sensible,Warning,fact_leave,2.0,FAIL,7.004,
+DQ-C11,AI feeds are fresh,Warning,fact_attrition_risk,5.0,FAIL,34.472,
+DQ-C12,Dimension history does not overlap,Critical,dim_employee,1.0,FAIL,7.877,
+DQ-C13,Pipeline freshness,Critical,etl_run_log,,UNAVAILABLE,26.577,etl_run_log is not present in the Task 2 warehouse. Pipeline freshness cannot be proven without a genuine successful-load timestamp.
+DQ-C14,Minimum group size,Critical,manager-facing aggregates,120.0,FAIL,21.1,

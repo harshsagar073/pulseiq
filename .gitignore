@@ -16,3 +16,23 @@ __pycache__/
 .DS_Store
 *.tmp
 *.log
+
+# Secrets and credentials - never commit
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+secrets/
+credentials/
+
+# Local backup copies - keep out of GitHub
+*.bak
+*.before_fix
+app_before*.py
+
+# Duplicate local verification folder
+/verification/

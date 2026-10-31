@@ -1,0 +1,10 @@
+TASK 10 — MANUAL VERIFICATION
+Method: Python independently sums raw employer_cost.
+Excluded payroll IDs: PI-X0001, PI-X0002, PI-X0003, PI-X0004.
+Variance = actual employer cost minus budget.
+
+2026-04 | D01 Engineering | Budget=24,848,000.00 | Manual actual=26,135,951.92 | Manual variance=1,287,951.92 | Actual match=True | Variance match=True
+2026-03 | D01 Engineering | Budget=17,135,000.00 | Manual actual=18,392,959.45 | Manual variance=1,257,959.45 | Actual match=True | Variance match=True
+2025-05 | D01 Engineering | Budget=15,860,000.00 | Manual actual=16,523,692.30 | Manual variance=663,692.30 | Actual match=True | Variance match=True
+
+Result: 3/3 examples matched.

@@ -1,0 +1,4 @@
+month,department_id,department_name,budget,manual_actual,manual_variance,dashboard_actual,dashboard_variance,actual_match,variance_match
+2026-04,D01,Engineering,24848000.0,26135951.92,1287951.92,26135951.92,1287951.92,True,True
+2026-03,D01,Engineering,17135000.0,18392959.45,1257959.45,18392959.45,1257959.45,True,True
+2025-05,D01,Engineering,15860000.0,16523692.3,663692.3,16523692.3,663692.3,True,True

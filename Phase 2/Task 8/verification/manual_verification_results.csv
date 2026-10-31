@@ -1,0 +1,3 @@
+team_id,team_name,active_members,total_tasks,completed_tasks,completed_story_points,avg_normalized_sprint_velocity,avg_cycle_time_days,valid_cycle_time_tasks,on_time_tasks,late_tasks,on_time_rate_pct,blocked_tasks,reopened_tasks,reopen_events,cancelled_tasks
+T01,Platform Core,35,2454.0,2151.0,7538.0,5.67,4.73,2149.0,2012.0,137.0,93.62,60.0,92.0,114.0,79.0
+T12,Support Tooling,58,3779.0,2994.0,10288.0,4.67,4.85,2991.0,2764.0,229.0,92.35,177.0,121.0,142.0,107.0
