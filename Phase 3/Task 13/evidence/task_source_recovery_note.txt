@@ -1,0 +1,24 @@
+TASK 13 SOURCE RECOVERY NOTE
+
+Original source:
+/Users/admin/Desktop/PulseIQ/Phase 1/Task 1/03_Data/PulseIQ_Dataset.xlsx
+
+Task 13 source:
+data/source/fact_task.csv
+
+Rows before recovery: 28848
+Rows recovered: 20
+Rows after recovery: 28868
+
+Recovery reason:
+20 task IDs were present in the original workbook but absent from
+the validated CSV copy. The original workbook records were appended
+to the isolated Task 13 source copy to reconcile the reference metrics.
+
+No earlier task folders or original source files were modified.
+
+Backup:
+evidence/fact_task_before_recovery.csv
+
+Recovered records:
+evidence/recovered_20_task_records.csv

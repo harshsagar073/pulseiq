@@ -1,0 +1,10 @@
+Metric,Calculated Value,Source,Validation Status,Remarks
+Total Revenue,1260930052.00,fact_ledger + dim_account,Calculated,Active Profit & Loss detail income accounts; credit less debit
+Total Expenses,1036264914.42,fact_ledger + dim_account,Calculated,Active Profit & Loss detail expense accounts; debit less credit
+Net Profit,224665137.58,Calculated Revenue - Expenses,Calculated,Revenue less expenses
+Profit Margin (%),17.817415,Calculated Net Profit / Revenue,Calculated,Overall period margin
+Ledger Rows,6784,fact_ledger,Source Count,Workbook sheet index reports 6784 rows
+Account Rows,47,dim_account,Source Count,Workbook sheet index reports 47 rows
+Expense Bill Rows,501,fact_expense,Source Count,Workbook sheet index reports 501 rows
+Vendor Rows,30,dim_vendor,Source Count,Workbook sheet index reports 30 rows
+README Headline P&L Comparison,Not Available,Workbook sheet index,Not Verifiable,No README sheet or headline P&L figures supplied in the sheet index

@@ -1,0 +1,43 @@
+PULSEIQ PHASE 3 - TASK 12 VALIDATION REPORT
+=======================================================
+Database: pulseiq_task12.duckdb
+Checks passed: 8
+Checks failed: 0
+
+[PASS] Open invoice count
+Actual: 62
+Expected: 62
+
+[PASS] Open receivables balance
+Actual: 139394278
+Expected: 139394278.0
+
+[PASS] Ageing invoice count reconciliation
+Actual: 62
+Expected: 62
+
+[PASS] Ageing balance reconciliation
+Actual: 139394278.0
+Expected: 139394278
+
+[PASS] Payment mismatch count
+Actual: 1
+Expected: 1
+
+[PASS] Known INV-00385 ₹100 exception
+Actual: Found
+Expected: Found
+
+[PASS] Total cash-in
+Actual: 1419349558.0
+Expected: 1419349558.0
+
+[PASS] Total cash-out
+Actual: 185831316.7
+Expected: 185831316.7
+
+DOCUMENTED EXCEPTIONS
+-------------------------------------------------------
+INV-00385: invoice paid amount is ₹1,049,828, but payment transactions total ₹1,049,728. Difference ₹100. Source data was not modified.
+
+Overall result: PASS

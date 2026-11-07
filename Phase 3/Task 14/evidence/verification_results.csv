@@ -1,0 +1,13 @@
+check,status,detail
+Anomaly source row count,PASS,405 rows; expected 405
+Forecast source row count,PASS,72 rows; expected 72
+Attrition risk source row count,PASS,430 rows; expected 430
+Historical headcount source row count,PASS,891 rows; expected 891
+Quantified anomaly records,PASS,184 quantified records; expected 184
+Unquantified anomaly records,PASS,221 unquantified records; expected 221
+Known money-at-risk total,PASS,"₹31,421,239.07"
+Forecast interval ordering,PASS,0 invalid forecast intervals
+Historical actual date range,PASS,2020-01-01 to 2026-09-01
+Forecast date range,PASS,2026-10-01 to 2027-03-01
+Forecast error overlap status,PASS,0 overlapping forecast/actual rows; zero is expected because forecast periods are future months
+Aggregated attrition risk count,PASS,430 employees represented in aggregate bands

@@ -1,0 +1,39 @@
+TASK 13 BUILD NOTES
+
+Grain: one row per department-month, based on the supplied reference key.
+Rows: 198
+Unique department-month keys: 198
+
+Payroll:
+- Excluded PI-X0001 through PI-X0004 from Task 13 payroll aggregations.
+- Two are duplicate employee-month payroll rows; two refer to employee IDs absent from dim_employee.
+- Original source CSV was not changed. Excluded rows are preserved in excluded_payroll_rows_task13.csv.
+
+Attendance:
+- Retained attendance fact rows using their recorded department and employee-month.
+- Used (present_days + 0.5 * half_days_unpaid) / scheduled_days for the department-month attendance rate.
+- Attendance rows are not dropped solely because the employee's SCD dimension validity ends before month-end.
+- SCD exceptions should be reviewed as dimension-maintenance issues, not treated as proof that the fact rows are invalid.
+
+Leave:
+- Included Approved requests only.
+- Excluded invalid approved date ranges from monthly allocation; see invalid_approved_leave_ranges.csv.
+- Allocated each request's recorded days proportionally across calendar working dates in the request interval.
+- Assigned department using employee SCD validity on each working date, with employee_key fallback.
+- Any unresolved rows are listed in unallocated_leave_exceptions.csv.
+
+Productivity:
+- Joined task to team and sprint.
+- Attributed each task to the sprint start month.
+- Excluded Cancelled tasks from the denominator; Done tasks contribute to completed tasks and story points.
+- D00 and D10 have no team mapping, so productivity remains N/A rather than zero.
+
+Derived metrics:
+- Cost per head = employer_cost / employees_paid.
+- Overtime share = overtime_pay / employer_cost * 100.
+- Overtime cost per paid employee = overtime_pay / employees_paid.
+- Leave days per average head = approved_leave_days / ((headcount_start + headcount_end) / 2).
+
+Interpretation:
+- Department-level patterns and correlations are descriptive, not proof of causation.
+- Payroll and attendance differences are retained in reconciliation evidence, not silently overwritten to force a match.

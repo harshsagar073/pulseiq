@@ -1,0 +1,11 @@
+metric,compared_rows,matched_rows,mismatched_rows,tolerance
+employer_cost,198,194,4,0.02
+gross_pay,198,194,4,0.02
+overtime_pay,198,198,0,0.02
+employees_paid,198,196,2,0.0
+late_arrivals,198,196,2,0.0
+attendance_rate,198,101,97,0.00011
+headcount_end,198,198,0,0.0
+hires,198,198,0,0.0
+exits,198,198,0,0.0
+attrition_rate_monthly_pct,198,198,0,0.011

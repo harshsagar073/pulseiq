@@ -1,0 +1,4 @@
+check,detail,result
+Department-month grain,198 rows; 198 unique keys,PASS
+Payroll exclusion audit,"4 excluded rows; IDs=PI-X0001,PI-X0002,PI-X0003,PI-X0004",PASS
+Productivity applicability,162 populated department-months; 36 N/A department-months,PASS

@@ -1,0 +1,115 @@
+
+========== DATA COUNTS ==========
+fact_ledger: 6,784 rows
+dim_account: 47 rows
+fact_expense: 501 rows
+dim_vendor: 30 rows
+
+========== ACCOUNT CLASSIFICATION ==========
+
+INCOME: 5 detail accounts, 1 group accounts
+4001 Software Services Revenue
+4002 Subscription (SaaS) Revenue
+4003 Consulting Revenue
+4004 Support & Maintenance Revenue
+4900 Other Income (Interest)
+
+EXPENSE: 19 detail accounts, 1 group accounts
+5001 Salaries & Wages
+5002 Overtime Expense
+5003 Incentives & Bonus
+5004 Employer PF Contribution
+5005 Employer ESI Contribution
+5101 Office Rent
+5102 Utilities
+5103 Internet & Telecom
+5104 Cloud Hosting
+5105 Software Subscriptions
+5106 Travel & Conveyance
+5107 Marketing & Advertising
+5108 Professional Fees
+5109 Recruitment Costs
+5110 Training & Development
+5111 Insurance
+5112 Office Supplies
+5201 Depreciation
+5301 Bank Charges
+
+========== LEDGER ACCOUNT SUMMARY ==========
+5001 Salaries & Wages EXPENSE 786924202.64
+5002 Overtime Expense EXPENSE 3024619.28
+5003 Incentives & Bonus EXPENSE 59696588.35
+5004 Employer PF Contribution EXPENSE 11888910.15
+5005 Employer ESI Contribution EXPENSE 70522.00
+5101 Office Rent EXPENSE 38154210.0
+5102 Utilities EXPENSE 6832160.0
+5103 Internet & Telecom EXPENSE 5087240.0
+5104 Cloud Hosting EXPENSE 27934680.0
+5105 Software Subscriptions EXPENSE 15261680.0
+5106 Travel & Conveyance EXPENSE 11309390.0
+5107 Marketing & Advertising EXPENSE 21422910.0
+5108 Professional Fees EXPENSE 13017270.0
+5109 Recruitment Costs EXPENSE 9110710.0
+5110 Training & Development EXPENSE 5306170.0
+5111 Insurance EXPENSE 11418030.0
+5112 Office Supplies EXPENSE 3391480.0
+5201 Depreciation EXPENSE 6300000.0
+5301 Bank Charges EXPENSE 114142.0
+4001 Software Services Revenue INCOME -664335300.0
+4002 Subscription (SaaS) Revenue INCOME -318649700.0
+4003 Consulting Revenue INCOME -157094600.0
+4004 Support & Maintenance Revenue INCOME -119125000.0
+4900 Other Income (Interest) INCOME -1725452.0
+
+========== MONTHLY P&L ==========
+2025-04 | Revenue: 71075300.00 | Expenses: 64761237.08 | Profit: 6314062.92 | Margin: 8.88 %
+2025-05 | Revenue: 60215000.00 | Expenses: 48380383.02 | Profit: 11834616.98 | Margin: 19.65 %
+2025-06 | Revenue: 70705426.00 | Expenses: 54350743.35 | Profit: 16354682.65 | Margin: 23.13 %
+2025-07 | Revenue: 56760900.00 | Expenses: 52066798.81 | Profit: 4694101.19 | Margin: 8.27 %
+2025-08 | Revenue: 63105200.00 | Expenses: 50541083.75 | Profit: 12564116.25 | Margin: 19.91 %
+2025-09 | Revenue: 67305126.00 | Expenses: 55415297.73 | Profit: 11889828.27 | Margin: 17.67 %
+2025-10 | Revenue: 68380100.00 | Expenses: 55731128.42 | Profit: 12648971.58 | Margin: 18.50 %
+2025-11 | Revenue: 63200000.00 | Expenses: 51932098.20 | Profit: 11267901.80 | Margin: 17.83 %
+2025-12 | Revenue: 66659811.00 | Expenses: 56286760.26 | Profit: 10373050.74 | Margin: 15.56 %
+2026-01 | Revenue: 62791500.00 | Expenses: 53470781.90 | Profit: 9320718.10 | Margin: 14.84 %
+2026-02 | Revenue: 64840700.00 | Expenses: 52423992.71 | Profit: 12416707.29 | Margin: 19.15 %
+2026-03 | Revenue: 75121472.00 | Expenses: 59644117.23 | Profit: 15477354.77 | Margin: 20.60 %
+2026-04 | Revenue: 83447700.00 | Expenses: 71999728.50 | Profit: 11447971.50 | Margin: 13.72 %
+2026-05 | Revenue: 73039200.00 | Expenses: 58419446.74 | Profit: 14619753.26 | Margin: 20.02 %
+2026-06 | Revenue: 82187522.00 | Expenses: 65247451.35 | Profit: 16940070.65 | Margin: 20.61 %
+2026-07 | Revenue: 70034000.00 | Expenses: 60645396.26 | Profit: 9388603.74 | Margin: 13.41 %
+2026-08 | Revenue: 81459400.00 | Expenses: 59332753.24 | Profit: 22126646.76 | Margin: 27.16 %
+2026-09 | Revenue: 80601695.00 | Expenses: 65615715.87 | Profit: 14985979.13 | Margin: 18.59 %
+
+========== EXPENSE CATEGORY ==========
+5101 Office Rent 38154210.00
+5104 Cloud Hosting 27934680.00
+5107 Marketing & Advertising 21422910.00
+5105 Software Subscriptions 15261680.00
+5108 Professional Fees 13017270.00
+5111 Insurance 11418030.00
+5106 Travel & Conveyance 11309390.00
+5109 Recruitment Costs 9110710.00
+5102 Utilities 6832160.00
+5110 Training & Development 5306170.00
+5103 Internet & Telecom 5087240.00
+5112 Office Supplies 3391480.00
+
+========== TOP 10 VENDORS ==========
+V-001 Skyline Realty Holdings 16879440.00
+V-009 StratoHost Infrastructure 14202760.00
+V-008 NimbusCloud Services 13731920.00
+V-003 Marina Business Park LLP 12085460.00
+V-018 BrandBridge Agency 9578240.00
+V-002 Garden City Workspaces 9189310.00
+V-017 PixelPulse Media 7696100.00
+V-028 Medicare Group Health Cover 6645690.00
+V-020 Ledger & Co Chartered Accountants 6527530.00
+V-013 DataLens Analytics Licences 5886650.00
+
+========== EXPENSE RECONCILIATION ==========
+Fact expense (excluding GST): 168245930.00
+Ledger signed expense total: 1036264914.42
+Note: These may differ because the tables can cover different accounting events.
+
+========== COMPLETED ==========

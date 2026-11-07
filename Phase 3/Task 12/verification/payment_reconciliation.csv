@@ -1,0 +1,2 @@
+invoice_id,invoice_number,client_id,status,total_amount,invoice_amount_paid,balance_due,transaction_payment_total,payment_count,payment_difference,reconciliation_status
+INV-00385,INV/2025-26/0334,CL-016,PAID,1049728,1049828,-100,1049728.0,1,100.0,MISMATCH
