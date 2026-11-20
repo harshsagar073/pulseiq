@@ -1,0 +1,10 @@
+{
+  "reporting_cutoff": "2026-09-01",
+  "exported_at_utc": "2026-11-20T06:29:42Z",
+  "monthly_rows": 81,
+  "task_completion_sprint": "SP-38",
+  "task_completion_pct": 85.51451080050826,
+  "data_source": "PulseIQ governed metric views",
+  "privacy": "Company-level aggregates only; suppressed rows excluded.",
+  "refresh_note": "This is a point-in-time export. New reporting values require an updated approved source database."
+}
