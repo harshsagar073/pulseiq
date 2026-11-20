@@ -69,17 +69,18 @@ def metric_value(row, column):
 # HEADER
 # --------------------------------------------------
 st.title("📊 PulseIQ")
-st.subheader("Executive Company Health Dashboard")
+st.subheader("Executive Company Health Dashboard & Self-service KPI Explorer")
 
 cutoff = metadata.get("reporting_cutoff", "Not available")
 st.caption(
     f"Reporting cut-off: **{cutoff}**  |  "
-    "Source: governed company-level KPI aggregates"
+    "Source: governed and privacy-protected aggregate data"
 )
 
 st.info(
-    "This public dashboard contains company-level aggregated information. "
-    "It does not publish employee-level records or department identifiers."
+    "This public demonstration provides company-level KPIs and approved, "
+    "privacy-protected department and team aggregates. It does not publish "
+    "employee-level records or personal identifiers."
 )
 
 # --------------------------------------------------
@@ -89,7 +90,7 @@ st.sidebar.title("PulseIQ Navigation")
 
 page = st.sidebar.radio(
     "Select dashboard section",
-    ["Executive Overview", "Monthly Trends", "Data & Methodology"],
+    ["Executive Overview", "Monthly Trends", "Data & Methodology", "Self-service KPI Explorer"],
 )
 
 available_months = df["month"].dropna().sort_values().tolist()
@@ -110,8 +111,12 @@ if selected.empty:
 row = selected.iloc[0]
 
 st.sidebar.divider()
-st.sidebar.caption("PulseIQ | Phase 4 | Task 17")
-st.sidebar.caption("Public release candidate")
+if page == "Self-service KPI Explorer":
+    st.sidebar.caption("PulseIQ | Phase 4 | Task 18")
+    st.sidebar.caption("Privacy-protected demo explorer")
+else:
+    st.sidebar.caption("PulseIQ | Phase 4 | Task 17")
+    st.sidebar.caption("Public release candidate")
 
 # --------------------------------------------------
 # EXECUTIVE OVERVIEW
@@ -275,7 +280,7 @@ elif page == "Monthly Trends":
 # --------------------------------------------------
 # DATA AND METHODOLOGY
 # --------------------------------------------------
-else:
+elif page == "Data & Methodology":
 
     st.header("Data & Methodology")
 
@@ -324,10 +329,25 @@ else:
     st.write(metadata.get("refresh_note", ""))
 
 # --------------------------------------------------
+# TASK 18: SELF-SERVICE KPI EXPLORER
+# --------------------------------------------------
+else:
+    import importlib.util
+
+    explorer_file = (
+        Path(__file__).resolve().parents[1] / "Task 18" / "explorer_page.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "pulseiq_task18_explorer", explorer_file
+    )
+    explorer = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(explorer)
+
+# --------------------------------------------------
 # FOOTER
 # --------------------------------------------------
 st.divider()
-st.caption(
-    "PulseIQ | Data Analytics | Phase 4 Task 17 | "
-    "Public company-level reporting"
-)
+if page == "Self-service KPI Explorer":
+    st.caption("PulseIQ | Data Analytics | Phase 4 Task 18 | Self-service KPI Explorer")
+else:
+    st.caption("PulseIQ | Data Analytics | Phase 4 Task 17 | Public company-level reporting")

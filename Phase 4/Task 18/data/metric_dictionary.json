@@ -1,0 +1,82 @@
+{
+  "M01": {
+    "name": "Headcount",
+    "minimum": 10,
+    "unit": "employees"
+  },
+  "M02": {
+    "name": "Hires",
+    "minimum": 10,
+    "unit": "employees"
+  },
+  "M03": {
+    "name": "Exits",
+    "minimum": 10,
+    "unit": "employees"
+  },
+  "M04": {
+    "name": "Monthly attrition rate",
+    "minimum": 10,
+    "unit": "percent"
+  },
+  "M07": {
+    "name": "Gross pay",
+    "minimum": 10,
+    "unit": "INR"
+  },
+  "M08": {
+    "name": "Net pay",
+    "minimum": 10,
+    "unit": "INR"
+  },
+  "M09": {
+    "name": "Payroll cost",
+    "minimum": 10,
+    "unit": "INR"
+  },
+  "M10": {
+    "name": "Cost per head",
+    "minimum": 10,
+    "unit": "INR"
+  },
+  "M11": {
+    "name": "Overtime share",
+    "minimum": 10,
+    "unit": "percent"
+  },
+  "M12": {
+    "name": "Variable pay share",
+    "minimum": 10,
+    "unit": "percent"
+  },
+  "M13": {
+    "name": "Attendance rate",
+    "minimum": 10,
+    "unit": "percent"
+  },
+  "M14": {
+    "name": "Late arrival rate",
+    "minimum": 10,
+    "unit": "percent"
+  },
+  "M22": {
+    "name": "Task completion rate",
+    "minimum": 10,
+    "unit": "percent"
+  },
+  "M23": {
+    "name": "On-time delivery",
+    "minimum": 10,
+    "unit": "percent"
+  },
+  "M24": {
+    "name": "Velocity",
+    "minimum": 10,
+    "unit": "points"
+  },
+  "M25": {
+    "name": "Average cycle time",
+    "minimum": 10,
+    "unit": "days"
+  }
+}

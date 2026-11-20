@@ -1,0 +1,5 @@
+user_id,display_name,role,department_id,team_id
+demo-admin,Demo Administrator,ADMIN,,
+demo-hr,Demo HR Partner,HR,,
+demo-manager,Demo Team Manager,MANAGER,D01,T01
+demo-executive,Demo Executive,EXECUTIVE,,

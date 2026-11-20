@@ -1,0 +1,11 @@
+{
+  "source": "Phase 3 Task 13 approved aggregate source CSVs",
+  "generated_from": "department-month workforce/payroll/attendance and team-sprint task data",
+  "minimum_group_size": 10,
+  "complementary_suppression": true,
+  "employee_level_data_exported": false,
+  "employee_identifiers_exported": false,
+  "department_month_rows_after_suppression": 629,
+  "team_sprint_rows_after_suppression": 562,
+  "note": "Demo role selection is not authentication. Team payroll and team attrition are not available and are not inferred."
+}
