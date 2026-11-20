@@ -55,22 +55,32 @@ The exported CSV contains 81 monthly records and is approximately 5.1 KB.
 
 ## Data refresh schedule and limitations
 
-**Review cadence:** Monthly, on the first business day of the month.
+**Automated schedule:** Monthly, on the first calendar day at 9:00 AM India local time, using a macOS LaunchAgent on the approved local machine.
 
-The monthly review procedure is:
+**Automation script:** `scripts/run_scheduled_refresh.py`
 
-1. Check whether an updated, approved source database is available.
-2. Run the public-data export script against that approved source.
-3. Run the Task 17 verification script.
-4. Review the reporting cutoff, privacy exclusions, and exported metadata.
-5. Commit and push the approved updated public data to GitHub.
-6. Confirm that the hosted dashboard displays the updated reporting period.
+The scheduled process:
 
-The current published CSV and metadata are a point-in-time snapshot. No automated source-data refresh is claimed to be active.
+1. Checks whether the approved local source database has changed since the last public export.
+2. Skips publication when the source database has not changed.
+3. If the source has changed, runs the public-data export script.
+4. Runs the Task 17 verification script.
+5. Stages only `data/company_kpis.csv` and `data/metadata.json`.
+6. Commits and pushes the verified public aggregates to the GitHub `main` branch.
+7. Allows Streamlit Community Cloud to receive the updated repository data.
 
-New reporting values require an updated approved source database. If no updated source is available, retain the existing snapshot and reporting cutoff.
+**Scheduler status:** The macOS LaunchAgent `com.pulseiq.task17-refresh` is installed and enabled. A manual trigger completed successfully with exit code 0. The test correctly skipped publication because the approved source database had not changed.
 
-The reporting cutoff represents the latest available reporting period in the exported data, not the deployment date. A GitHub deployment or app restart does not itself refresh the underlying KPI data.
+**Important operating limitations:**
+
+- This is local Mac automation, not a cloud-hosted scheduler. The Mac must be powered on, awake, and logged in for the scheduled process to run.
+- GitHub authentication must remain available to the scheduled process for an updated-data push to succeed.
+- The approved source database remains local and is not uploaded to GitHub.
+- Only verified, sanitized company-level aggregates are published.
+- New reporting values require an updated approved source database. If no updated source is available, the existing snapshot and reporting cutoff are retained.
+- A scheduled run, GitHub deployment, or app restart does not itself create new reporting data.
+
+The reporting cutoff represents the latest available reporting period in the exported data, not the deployment date.
 
 ## Privacy and security
 
