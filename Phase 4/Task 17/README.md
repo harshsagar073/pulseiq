@@ -38,8 +38,6 @@ From the repository root:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r "Phase 4/Task 17/requirements.txt"
+pip install -r requirements.txt
 cd "Phase 4/Task 17"
 streamlit run app.py
-fv
-plain text
