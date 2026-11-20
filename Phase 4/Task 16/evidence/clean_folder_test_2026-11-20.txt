@@ -1,0 +1,28 @@
+PULSEIQ TASK 16 — CLEAN-FOLDER TEST
+
+Test date: 20 November 2026
+Python version: 3.13.12
+Environment: Fresh virtual environment under /tmp
+Test location: /tmp/pulseiq-task16-clean-test-20261120
+
+Test procedure:
+1. Copied the Task 16 report builder and requirements.
+2. Copied the source DuckDB database into the temporary test folder.
+3. Generated the August 2026 monthly PDF report.
+4. Generated the September 2026 monthly PDF report.
+5. Ran the Task 16 verification script.
+
+Results:
+- August 2026 PDF: PASS
+- September 2026 PDF: PASS
+- Verification checks: 7/7 passed
+- Failed checks: 0
+- Dependency check: No broken requirements found.
+
+Conclusion:
+The report builder successfully generated both monthly reports
+from a separate clean-folder setup using the pinned dependencies.
+
+Note:
+This was a clean-folder test on the same Mac, not a separate
+computer test.
