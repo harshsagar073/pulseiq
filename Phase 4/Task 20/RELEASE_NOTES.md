@@ -6,6 +6,8 @@
 - Public KPI export and privacy-aware role-based analytics explorer.
 - Metrics API with five governed metrics, documentation and lineage.
 - Nine-slide board presentation with findings, evidence charts and recommendations.
+- AI-assisted Payroll Cost Drill-down dashboard with monthly trends, department comparisons, cost movement and privacy controls.
+- Final Challenge evidence screenshots and automated verification (16/16 checks passed).
 - Task-level verification scripts and final handover evidence.
 
 ## Not included
@@ -23,6 +25,17 @@
 - Task 19 freshness uses the deployed database file timestamp and does not prove upstream source ingestion time.
 - Task 13 productivity is unavailable/suppressed for some department-month groups; do not rank suppressed groups.
 - Task 11 P&L figures represent its analysed period, not September 2026 alone.
+
+## Final Challenge verification
+- Payroll records loaded after exclusions: 7,340.
+- Monthly history: 18 months.
+- September 2026 employees: 444.
+- September 2026 gross pay: ₹54,788,660.03.
+- September 2026 net pay: ₹48,089,678.30.
+- September 2026 employer cost: ₹55,519,621.87.
+- Automated checks: 16/16 passed.
+- Database accessed read-only; department groups below five employees are suppressed.
+- Implementation used AI assistance; see Task 20 `final_challenge/FINAL_CHALLENGE_NOTES.md`.
 
 ## Verification
 - Task 16: 7/7 checks passed.
