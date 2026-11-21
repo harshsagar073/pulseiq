@@ -69,8 +69,8 @@ payroll = pay.groupby(["department_id", "month"], as_index=False).agg(
     payroll_employees=("employee_id", "nunique"),
     gross_pay=("gross_pay", "sum"),
     net_pay=("net_pay", "sum"),
-    employer_cost=("employer_cost", "sum"),
-    overtime_pay=("overtime_pay", "sum"),
+    employer_cost=("employer_cost", lambda x: x.sum(min_count=1)),
+    overtime_pay=("overtime_pay", lambda x: x.sum(min_count=1)),
     variable_pay=("variable_pay", "sum"),
 )
 payroll["cost_per_head"] = (
@@ -94,10 +94,10 @@ att = num(att, ["scheduled_days", "present_days", "half_days_unpaid",
 att["adjusted_present"] = att["present_days"] + 0.5 * att["half_days_unpaid"]
 attendance = att.groupby(["department_id", "month"], as_index=False).agg(
     attendance_employees=("employee_id", "nunique"),
-    adjusted_present=("adjusted_present", "sum"),
-    scheduled_days=("scheduled_days", "sum"),
-    late_arrivals=("late_arrivals", "sum"),
-    present_days=("present_days", "sum"),
+    adjusted_present=("adjusted_present", lambda x: x.sum(min_count=1)),
+    scheduled_days=("scheduled_days", lambda x: x.sum(min_count=1)),
+    late_arrivals=("late_arrivals", lambda x: x.sum(min_count=1)),
+    present_days=("present_days", lambda x: x.sum(min_count=1)),
 )
 attendance["attendance_pct"] = (
     attendance["adjusted_present"] /
@@ -124,20 +124,40 @@ company = dept.groupby("month", as_index=False).agg(
     headcount_end=("headcount_end", "sum"),
     hires=("hires", "sum"),
     exits=("exits", "sum"),
-    employer_cost=("employer_cost", "sum"),
-    payroll_employees=("payroll_employees", "sum"),
-    overtime_pay=("overtime_pay", "sum"),
-    adjusted_present=("adjusted_present", "sum"),
-    scheduled_days=("scheduled_days", "sum"),
-    late_arrivals=("late_arrivals", "sum"),
-    present_days=("present_days", "sum"),
+    employer_cost=("employer_cost", lambda x: x.sum(min_count=1)),
+    payroll_employees=("payroll_employees", lambda x: x.sum(min_count=1)),
+    overtime_pay=("overtime_pay", lambda x: x.sum(min_count=1)),
+    adjusted_present=("adjusted_present", lambda x: x.sum(min_count=1)),
+    scheduled_days=("scheduled_days", lambda x: x.sum(min_count=1)),
+    late_arrivals=("late_arrivals", lambda x: x.sum(min_count=1)),
+    present_days=("present_days", lambda x: x.sum(min_count=1)),
 )
 company["attrition_pct"] = company["exits"] / company["headcount_start"].replace(0, pd.NA) * 100
 company["cost_per_head"] = company["employer_cost"] / company["payroll_employees"].replace(0, pd.NA)
 company["overtime_share_pct"] = company["overtime_pay"] / company["employer_cost"].replace(0, pd.NA) * 100
 company["attendance_pct"] = company["adjusted_present"] / company["scheduled_days"].replace(0, pd.NA) * 100
 company["late_arrival_pct"] = company["late_arrivals"] / company["present_days"].replace(0, pd.NA) * 100
-company["month"] = company["month"].dt.strftime("%Y-%m-%d")
+
+# Mask department metrics when their own employee/event group is below 10.
+# Company totals above are calculated before these department-only masks.
+dept.loc[dept["hires"] < 10, ["hires"]] = pd.NA
+dept.loc[dept["exits"] < 10, ["exits", "voluntary_exits"]] = pd.NA
+
+payroll_fields = [
+    "payroll_employees", "gross_pay", "net_pay", "employer_cost",
+    "overtime_pay", "variable_pay", "cost_per_head",
+    "overtime_share_pct", "variable_pay_share_pct",
+]
+small_payroll = dept["payroll_employees"].notna() & dept["payroll_employees"].lt(10)
+dept.loc[small_payroll, payroll_fields] = pd.NA
+
+attendance_fields = [
+    "attendance_employees", "adjusted_present", "scheduled_days",
+    "late_arrivals", "present_days", "attendance_pct", "late_arrival_pct",
+]
+small_attendance = dept["attendance_employees"].notna() & dept["attendance_employees"].lt(10)
+dept.loc[small_attendance, attendance_fields] = pd.NA
+
 company.to_csv(OUT / "company_month.csv", index=False)
 
 # Complementary suppression: hide the smallest otherwise-visible department
@@ -166,10 +186,24 @@ dept.to_csv(OUT / "department_month.csv", index=False)
 # Team/sprint productivity. Only aggregates leave this script.
 tasks = read("fact_task.csv")
 tasks["story_points"] = pd.to_numeric(tasks["story_points"], errors="coerce").fillna(0)
-tasks["cycle_time_days"] = pd.to_numeric(tasks["cycle_time_days"], errors="coerce")
-tasks["is_done"] = tasks["status"].astype(str).str.lower().eq("done")
-tasks["is_eligible"] = ~tasks["status"].astype(str).str.lower().eq("cancelled")
-tasks["on_time"] = tasks["completed_on_time"].astype(str).str.upper().eq("Y")
+tasks["status_clean"] = tasks["status"].astype(str).str.upper()
+tasks["is_done"] = tasks["status_clean"].eq("DONE")
+tasks["is_eligible"] = tasks["status_clean"].ne("CANCELLED")
+tasks["on_time"] = (
+    tasks["is_done"]
+    & tasks["completed_on_time"].astype(str).str.upper().isin(["Y", "TRUE", "1"])
+)
+tasks["started_date_parsed"] = pd.to_datetime(tasks["started_date"], errors="coerce")
+tasks["completed_date_parsed"] = pd.to_datetime(tasks["completed_date"], errors="coerce")
+tasks["cycle_days"] = (
+    tasks["completed_date_parsed"] - tasks["started_date_parsed"]
+).dt.days
+tasks["valid_cycle_days"] = (
+    tasks["is_done"]
+    & tasks["started_date_parsed"].notna()
+    & tasks["completed_date_parsed"].notna()
+    & tasks["cycle_days"].ge(0)
+)
 
 team = tasks.groupby(["team_id", "sprint_id"], as_index=False).agg(
     distinct_assignees=("assignee_employee_id", "nunique"),
@@ -177,14 +211,18 @@ team = tasks.groupby(["team_id", "sprint_id"], as_index=False).agg(
     eligible_tasks=("is_eligible", "sum"),
     done_tasks=("is_done", "sum"),
     on_time_tasks=("on_time", "sum"),
+    valid_cycle_tasks=("valid_cycle_days", "sum"),
     story_points_done=("story_points", lambda s: s[tasks.loc[s.index, "is_done"]].sum()),
-    average_cycle_time=("cycle_time_days", lambda s: s[tasks.loc[s.index, "is_done"]].mean()),
+    average_cycle_time=("cycle_days", lambda s: s[tasks.loc[s.index, "valid_cycle_days"]].mean()),
 )
 team["completion_pct"] = (
     team["done_tasks"] / team["eligible_tasks"].replace(0, pd.NA) * 100
-)
+).where(team["eligible_tasks"] >= 10)
 team["on_time_pct"] = (
     team["on_time_tasks"] / team["done_tasks"].replace(0, pd.NA) * 100
+).where(team["done_tasks"] >= 10)
+team["average_cycle_time"] = team["average_cycle_time"].where(
+    team["valid_cycle_tasks"] >= 10
 )
 
 dim_team = read("dim_team.csv")[["team_id", "team_name", "department_id"]]

@@ -47,3 +47,4 @@ Run these commands from the repository root:
 ```bash
 python "Phase 4/Task 18/scripts/export_task18_data.py"
 python "Phase 4/Task 18/scripts/verify_task18.py"
+```
